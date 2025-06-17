@@ -1,5 +1,7 @@
 node_modules/
 frontend/node_modules/
 backend/node_modules/
+stew8z-codex/set-up-full-stack-project-scaffold
 backend/uploads/*
 !backend/uploads/.gitkeep
+main

@@ -1,0 +1,9 @@
+{
+  "name": "food-truck-ratings-app",
+  "private": true,
+  "workspaces": ["backend", "frontend"],
+  "scripts": {
+    "start:backend": "npm --workspace backend start",
+    "dev:frontend": "npm --workspace frontend run dev"
+  }
+}
