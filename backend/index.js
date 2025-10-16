@@ -2,6 +2,7 @@ const express = require('express');
 const multer = require('multer');
 const fs = require('fs');
 const path = require('path');
+const cors = require('cors');
 
 const app = express();
 const port = process.env.PORT || 3001;
@@ -51,14 +52,16 @@ function computeStats(reviews) {
     } else {
       const base = stars === 0 ? 0 : thresholds[stars - 1];
       const next = thresholds[stars];
-      const progress = (score - base) / (next - base);
+      const progress = next ? (score - base) / (next - base) : 1;
       map[name] = { stars, progress: Number(progress.toFixed(2)) };
     }
   }
   return map;
 }
 
+app.use(cors());
 app.use(express.json());
+app.use('/uploads', express.static(uploadsDir));
 
 const reviews = [];
 
